@@ -18,13 +18,13 @@ const Blog = ({
 
   return (
     <div style={blogStyle}>
-      <div>
+      <div className='header'>
         {blog.title} {blog.author}
         <button onClick={() => setShowDetails(!showDetails)}>{showDetails ? 'hide' : 'view'}</button>
       </div>
       {
         showDetails &&
-        <div>
+        <div className='collapsed'>
           <div>
             {blog.url}
           </div>
