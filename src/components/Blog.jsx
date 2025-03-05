@@ -17,7 +17,7 @@ const Blog = ({
   const [showDetails, setShowDetails] = useState(false)
 
   return (
-    <div style={blogStyle}>
+    <div style={blogStyle} className='blog'>
       <div className='header'>
         {blog.title} {blog.author}
         <button onClick={() => setShowDetails(!showDetails)}>{showDetails ? 'hide' : 'view'}</button>

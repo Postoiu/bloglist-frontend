@@ -16,8 +16,6 @@ test('displays blog\'s title and author, but nothing else', () => {
     }
   }
 
-  
-
   const { container } = render(<Blog blog={blog} />)
   const header = container.querySelector('.header')
   const collapsed = container.querySelector('collapsed')
@@ -47,7 +45,7 @@ test('collpased info is shown when view button is clicked', async () => {
   }
 
   const { container } = render(<Blog blog={blog} currentUser={currentUser} />)
-  
+
   const user = userEvent.setup()
   const viewButton = screen.getByText('view')
   await user.click(viewButton)
@@ -79,8 +77,7 @@ test('like button is clicked twice', async () => {
   const mockHandler = vi.fn()
 
   render(<Blog blog={blog} currentUser={currentUser} onUpdate={mockHandler} />)
-  
-  
+
   const user = userEvent.setup()
   const viewButton = screen.getByText('view')
   await user.click(viewButton)

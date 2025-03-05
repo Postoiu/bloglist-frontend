@@ -29,7 +29,7 @@ const App = () => {
   useEffect(() => {
     if (user !== null) {
       blogService.getAll().then(blogs =>
-        setBlogs( blogs.sort((a, b) => b.likes - a.likes) )
+        setBlogs( blogs.sort((a, b) => b.likes - a.likes))
       )
     }
   }, [user])
@@ -67,7 +67,7 @@ const App = () => {
       blogFormRef.current.toggleVisibility()
       const addedBlog = await blogService.create(blogObject)
 
-      setBlogs(blogs.concat(addedBlog))
+      setBlogs(blogs.concat(addedBlog).sort((a, b) => b.likes - a.likes))
       setNotificationMsg(`a new blog ${addedBlog.title} by ${addedBlog.author} added`)
     } catch (exception) {
       setNotificationMsg(exception.response.data.error)
@@ -128,6 +128,7 @@ const App = () => {
           <div>
             username
             <input
+              data-testid='username'
               type="text"
               value={username}
               name='username'
@@ -137,6 +138,7 @@ const App = () => {
           <div>
             password
             <input
+              data-testid='password'
               type="password"
               value={password}
               name='password'
